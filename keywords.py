@@ -8,11 +8,12 @@ keywords_list = ["and", "array", "asm", "begin", "break", "case", "const", "cons
                  "unit", "until", "uses", "var", "while", "with", "xor"]
 
 
-def Keywords(words):
-    for i in range(len(words)):
-        if words [i][1] == "identifier":
-            if words[i][0].lower() not in keywords_list:
+def keywords(words: list) -> list:
+    buffer = []
+    for i,word in enumerate(words):
+        if word[1] == "IDENT":
+            if word[0].lower() in keywords_list:
+                buffer.append((word[0], 'KEY_' + word[0].upper()))
                 continue
-            else:
-                return True
-    return False
+        buffer.append(words[i])
+    return buffer
