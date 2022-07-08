@@ -55,7 +55,9 @@ def syntax(words: list) -> bool:
                 else:
                     return False
             case 'SIGN':
-                if type in ['OPERATOR', 'INT']:
+                if type == 'OPERATOR' and value in ['-', '+']:
+                    state = 'INT'
+                elif type == 'INT':
                     state = 'INT'
                 else:
                     return False
