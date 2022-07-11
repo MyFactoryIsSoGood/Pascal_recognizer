@@ -73,7 +73,7 @@ def lex(symbols: list) -> list:
                 else:
                     state = 'ERROR'
             case 'HEX_CONST':
-                if type == 'HEX_LETTER' or type == 'HEX_DIGIT':
+                if type == 'HEX_LETTER' or type == 'DIGIT':
                     state = 'HEX_CONST'
                     buffer['value'] += char
                 elif type == 'OPERATOR':
